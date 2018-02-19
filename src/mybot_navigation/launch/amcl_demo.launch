@@ -3,7 +3,7 @@
   <master auto="start"/>
 
   <!-- Map server -->
-  <arg name="map_file" default="$(find mybot_navigation)/maps/test_map.yaml"/>
+  <arg name="map_file" default="$(find mybot_navigation)/maps/test_map2.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!-- Place map frame at odometry frame -->
@@ -30,7 +30,7 @@
     <rosparam file="$(find mybot_navigation)/config/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find mybot_navigation)/config/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find mybot_navigation)/config/base_local_planner_params.yaml" command="load" />
-    
+
     <remap from="cmd_vel" to="cmd_vel"/>
     <remap from="odom" to="odom"/>
     <remap from="scan" to="mybot/laser/scan"/>

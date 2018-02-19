@@ -8,7 +8,7 @@
       <kd value="0.00001" />
       <maxVel value="1.0" />
       <minDepth value="0.0001" />
-  </gazebo>    
+  </gazebo>
   <gazebo reference="right_wheel_hinge">
       <mu1 value="10000.0" />
       <mu2 value="10000.0" />
@@ -16,7 +16,7 @@
       <kd value="0.00001" />
       <maxVel value="1.0" />
       <minDepth value="0.0001" />
-  </gazebo-->    
+  </gazebo-->
 
   <gazebo>
     <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
@@ -84,17 +84,17 @@
 
   <!-- hokuyo -->
   <gazebo reference="hokuyo">
-    <sensor type="gpu_ray" name="head_hokuyo_sensor">
+    <sensor type="ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
-      <visualize>false</visualize>
+      <visualize>true</visualize>
       <update_rate>40</update_rate>
       <ray>
         <scan>
           <horizontal>
             <samples>720</samples>
             <resolution>1</resolution>
-            <min_angle>-1.570796</min_angle>
-            <max_angle>1.570796</max_angle>
+            <min_angle>0.0</min_angle>
+            <max_angle>6.28</max_angle>
           </horizontal>
         </scan>
         <range>
@@ -112,7 +112,7 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
+      <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
         <topicName>/mybot/laser/scan</topicName>
         <frameName>hokuyo</frameName>
       </plugin>
